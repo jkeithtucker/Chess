@@ -2,7 +2,7 @@
 Chess game with all rules implemented. Written in C++.
 
 ## Application Information
-CMake used in conjunction with JSON settings (as per MSVS CMake project default).
+CMake used in conjunction with JSON presets (as per MSVS CMake project default).
 
 External library SFML 2.6.1 for GUI. Installed using vcpkg.
 
