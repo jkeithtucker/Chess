@@ -1,5 +1,5 @@
 # Chess Project
-Chess game with all rules implemented. Written in C++.
+Chess game with all rules implemented. Written in C/C++.
 
 ## Application Information
 CMake used in conjunction with JSON presets (as per MSVS CMake project default).
