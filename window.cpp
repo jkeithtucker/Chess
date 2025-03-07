@@ -26,19 +26,19 @@ SpriteStruct* loadSprites(void)
 	sf::Texture* bKing = new sf::Texture;
 
 	// load png for texture
-	wPawn->loadFromFile("../../../assets/wPawn.png");
-	wKnight->loadFromFile("../../../assets/wKnight.png");
-	wBishop->loadFromFile("../../../assets/wBishop.png");
-	wRook->loadFromFile("../../../assets/wRook.png");
-	wQueen->loadFromFile("../../../assets/wQueen.png");
-	wKing->loadFromFile("../../../assets/wKing.png");
+	wPawn->loadFromFile("../../assets/wPawn.png");
+	wKnight->loadFromFile("../../assets/wKnight.png");
+	wBishop->loadFromFile("../../assets/wBishop.png");
+	wRook->loadFromFile("../../assets/wRook.png");
+	wQueen->loadFromFile("../../assets/wQueen.png");
+	wKing->loadFromFile("../../assets/wKing.png");
 
-	bPawn->loadFromFile("../../../assets/bPawn.png");
-	bKnight->loadFromFile("../../../assets/bKnight.png");
-	bBishop->loadFromFile("../../../assets/bBishop.png");
-	bRook->loadFromFile("../../../assets/bRook.png");
-	bQueen->loadFromFile("../../../assets/bQueen.png");
-	bKing->loadFromFile("../../../assets/bKing.png");
+	bPawn->loadFromFile("../../assets/bPawn.png");
+	bKnight->loadFromFile("../../assets/bKnight.png");
+	bBishop->loadFromFile("../../assets/bBishop.png");
+	bRook->loadFromFile("../../assets/bRook.png");
+	bQueen->loadFromFile("../../assets/bQueen.png");
+	bKing->loadFromFile("../../assets/bKing.png");
 
 	// allocate sprites on heap
 	sf::Sprite* wP = new sf::Sprite;
