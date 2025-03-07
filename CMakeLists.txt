@@ -1,16 +1,27 @@
-﻿cmake_minimum_required (VERSION 3.8)
+cmake_minimum_required (VERSION 3.8)
+project ("ChessApplication" VERSION 1.0.0 LANGUAGES CXX)
 
-project ("ChessProject")
+# Default to release builds
+if(NOT CMAKE_BUILD_TYPE)
+   set(CMAKE_BUILD_TYPE Release)
+endif()
 
-install(CODE [[
-  message(STATUS "PROJECT_SOURCE_DIR: ${PROJECT_SOURCE_DIR}")
-  message(STATUS "CMAKE_BINARY_DIR: ${CMAKE_BINARY_DIR}")
-  message(STATUS "CMAKE_SOURCE_DIR: ${CMAKE_SOURCE_DIR}")
-]])
-
-set(SFML_DIR "C:/dev/libraries/SFML-2.6.1/lib/cmake/SFML")
 find_package(SFML 2.6.1 COMPONENTS "system" "window" "graphics" CONFIG REQUIRED)
 
-add_executable (ChessProject "app.cpp" "app.hpp" "bitboards.cpp" "bitboards.hpp" "chess.cpp" "chess.hpp" "fen.cpp" "fen.hpp" "main.cpp" "pch.cpp" "pch.hpp" "window.cpp" "window.hpp" "chessConst.hpp")
+file(GLOB SOURCES *.cpp)
+add_executable (${PROJECT_NAME} ${SOURCES})
 
-target_link_libraries(ChessProject PRIVATE "sfml-system" "sfml-graphics" "sfml-window")
+target_include_directories(${PROJECT_NAME} PRIVATE "assets" "lib/Release" "lib/Debug")
+set(SFML_LIBS "sfml-system" "sfml-graphics" "sfml-window")
+target_link_libraries(${PROJECT_NAME} PRIVATE ${SFML_LIBS})
+
+set_property(TARGET ${PROJECT_NAME} PROPERTY CXX_STANDARD 17)
+
+# Copy library .dlls to .exe DIR
+if(CMAKE_BUILD_TYPE STREQUAL DEBUG)
+    file(COPY "lib/Debug" DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
+endif()
+
+if(CMAKE_BUILD_TYPE STREQUAL RELEASE)
+    file(COPY "lib/Release" DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
+endif()
